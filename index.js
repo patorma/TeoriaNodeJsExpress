@@ -12,20 +12,16 @@ http.createServer((req, res) => {
 const colors = require('colors')
     //Node.js con Espress
 const express = require('express')
+const morgan = require('morgan')
     //se incializa express
 const app = express()
     //informacion al cliente
     //rutas
     //middleware
-app.use((req, res, next) => {
-        console.log('request url: ' + req.url)
-        next()
-    })
-    //middleware2
-app.use((req, res, next) => {
-    console.log('ha pasado por esta funcion')
-    next()
-})
+    //morgan
+app.use(morgan('dev'))
+
+
 app.get('/', (req, res) => {
     //se finaliza la peticion
     res.end('Hello World!')
