@@ -15,13 +15,27 @@ const express = require('express')
     //se incializa express
 const app = express()
     //informacion al cliente
+    //rutas
+    //middleware
+app.use((req, res, next) => {
+        console.log('request url: ' + req.url)
+        next()
+    })
+    //middleware2
+app.use((req, res, next) => {
+    console.log('ha pasado por esta funcion')
+    next()
+})
 app.get('/', (req, res) => {
     //se finaliza la peticion
     res.end('Hello World!')
 })
 
 app.get('/login', (req, res) => {
-        res.end('Aqui va el login')
+    res.end('Aqui va el login')
+})
+app.get('*', (req, res) => {
+        res.end('Archivo no encontrado')
     })
     //se creo servidor
     //luego que se ejecuta el servidor en el puerto 300 se ejecuta una funcion (callback)
