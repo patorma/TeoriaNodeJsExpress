@@ -16,8 +16,12 @@ const express = require('express')
 const app = express()
     //informacion al cliente
 app.get('/', (req, res) => {
-        //se finaliza la peticion
-        res.end('Hello World!')
+    //se finaliza la peticion
+    res.end('Hello World!')
+})
+
+app.get('/login', (req, res) => {
+        res.end('Aqui va el login')
     })
     //se creo servidor
     //luego que se ejecuta el servidor en el puerto 300 se ejecuta una funcion (callback)
