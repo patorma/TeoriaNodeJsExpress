@@ -19,7 +19,7 @@ const app = express()
     //rutas
     //middleware
     //morgan
-app.use(morgan('short'))
+app.use(morgan('combined'))
 
 
 app.get('/', (req, res) => {
